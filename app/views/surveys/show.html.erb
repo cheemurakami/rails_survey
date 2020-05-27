@@ -1,0 +1,8 @@
+<h1><%= @survey.title %><h1>
+
+<h4><%= link_to "Edit", edit_survey_path(@survey) %></h4>
+<h4><%= link_to "Delete", survey_path(@survey),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"} %></h4>
+
+<h4><%= link_to "Return to surveys", surveys_path %></h4>

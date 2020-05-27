@@ -1,4 +1,4 @@
-class SurveyController < ApplicationController
+class SurveysController < ApplicationController
 
   def index
     @surveys = Survey.all
@@ -13,10 +13,11 @@ class SurveyController < ApplicationController
   def create
     @survey = Survey.new(survey_params)
     if @survey.save
-      flash[:notice] = "Survey successfully added!" #add something later in views
+      # flash[:notice] = "Survey successfully added!" #add something later in views
       redirect_to surveys_path
     else
       render :new
+    end
   end
 
   def edit
@@ -39,7 +40,7 @@ class SurveyController < ApplicationController
   end
 
   def destroy
-    @survey = Survery.find(params[:id])
+    @survey = Survey.find(params[:id])
     @survey.destroy
     redirect_to surveys_path
   end
@@ -48,4 +49,5 @@ class SurveyController < ApplicationController
     def survey_params
       params.require(:survey).permit(:title)
     end
+
 end
