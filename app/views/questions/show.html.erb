@@ -1,0 +1,7 @@
+<h2>Questions: <%= @question.content %> </h2>
+<p>from <%= @survey.title%></p> 
+
+<p><%= link_to "Edit question", edit_survey_question_path(@survey, @question) %></p>
+<p><%= link_to "Delete this question", survey_question_path(@survey, @question),
+                        :data => {:confirm => "Are you sure?",
+                                       :method => "delete"} %></p>
